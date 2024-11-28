@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       return Response.json(
         {
           success: false,
-          message: "username is not valid",
+          message: "username is not valid",usernameErrors
         },
         {
           status: 400,
