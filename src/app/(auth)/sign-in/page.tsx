@@ -33,8 +33,8 @@ const page = () => {
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
-      identifier: '',
-      password: '',
+      identifier: "",
+      password: "",
     },
   });
 
@@ -74,7 +74,7 @@ const page = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <Input {...field} name="email" />
-                 
+
                   <FormMessage />
                 </FormItem>
               )}
@@ -92,7 +92,7 @@ const page = () => {
               )}
             />
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-             Sign In
+              Sign In
             </Button>
           </form>
         </Form>
@@ -100,7 +100,7 @@ const page = () => {
           <p>
             Create a Account?{" "}
             <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
-              Sign Up 
+              Sign Up
             </Link>
           </p>
         </div>
