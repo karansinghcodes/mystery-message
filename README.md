@@ -45,5 +45,6 @@ Mystery Message is a web application built with Next.js that allows users to cre
    ```
 2. **Start the Production Server**:<br>
    Serve the built application using
-   ``bash
+   ```bash
    npm start
+   ```
