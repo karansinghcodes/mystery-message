@@ -12,10 +12,12 @@ export async function GET(request: Request) {
     const result = await model.generateContent(prompt);
 
     const response = result.response.text();
+    const messages = response.split("||");
+  
     return Response.json(
       {
         success: true,
-        messages: response,
+        messages: messages,
       },
       {
         status: 200,

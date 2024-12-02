@@ -86,7 +86,7 @@ export async function GET(request: Request) {
   }
   const userId = user._id;
   try {
-    const foundUser = await UserModel.findById(userId);
+    const foundUser = await UserModel.findById({_id:userId});
     if (!foundUser) {
       return Response.json(
         {
@@ -100,7 +100,7 @@ export async function GET(request: Request) {
     return Response.json(
       {
         success: true,
-        isAcceptingMessages: foundUser.isAcceptingMessage,
+        isAcceptingMessage: foundUser.isAcceptingMessage,
       },
       { status: 200 }
     );

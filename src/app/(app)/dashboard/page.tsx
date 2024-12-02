@@ -38,6 +38,8 @@ const page = () => {
 
     try {
       const response = await axios.get<ApiResponse>("/api/accept-messages");
+      console.log(response);
+
       setValue("acceptMessages", response.data.isAcceptingMessage);
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
@@ -89,8 +91,8 @@ const page = () => {
     if (!session || !session.user) {
       router.replace("/sign-in");
     }
-    fetchMessages();
     fetchAcceptMessage();
+    fetchMessages();
   }, [session, setValue, fetchAcceptMessage, fetchMessages]);
 
   const handleSwitchChange = async () => {
@@ -116,7 +118,6 @@ const page = () => {
   };
   const user = session?.user as User;
   const username = user?.username;
-  console.log(username);
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
   const profileUrl = `${baseUrl}/u/${username}`;
   const copyToClipboard = () => {
@@ -127,7 +128,6 @@ const page = () => {
     });
   };
   if (!session || !session.user) {
-    router.replace("/sign-in");
   }
   return (
     <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
@@ -177,7 +177,7 @@ const page = () => {
         {messages.length > 0 ? (
           messages.map((message, index) => (
             <MessageCard
-              key={message._id}
+              // key={message._id}
               message={message}
               onMessageDelete={handleDeleteMessage}
             />
